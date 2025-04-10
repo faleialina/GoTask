@@ -1,9 +1,11 @@
 package main
 
-import "fmt"
+// "fmt"
+// "math"
+// "strconv"
 
 func main()  {
-	// 1. Проверьте возраст у входных данных :
+// 1. Проверьте возраст у входных данных :
 // Если < 18 — "Вы несовершеннолетний".
 // Если 18-60 — "Вы взрослый".
 // Если > 60 — "Вы пожилой человек".
@@ -116,25 +118,137 @@ func main()  {
 // Вход: 123 → "123" (преобразовать в строку)
 // Вход: "456" → 456 (преобразовать в число)
 
+// // Число → строка
+// num := 123
+// str1 := strconv.Itoa(num) 
+// str2 := fmt.Sprint(num) 
+
+// fmt.Printf("%d → %q (через Itoa)\n", num, str1)
+// fmt.Printf("%d → %q (через Sprint)\n", num, str2)
+
+// // Cтрока → число
+// str := "456"
+// strAsNumber, err := strconv.Atoi(str)
+// if err != nil {
+// 	fmt.Println("Ошибка:", err)
+// 	return
+// }
+// fmt.Printf("%q → %d\n", str, strAsNumber)
 
 // 8. Введите число с плавающей точкой и преобразуйте его в целое число (округлить).
 // Ввод: 3.14 → 3
 // Ввод: 7.99 → 8
 
+// var floatNum float64
+
+// fmt.Print("Введите число с плавающей точкой: ")
+// fmt.Scanln(&floatNum)
+
+// rounded := math.Round(floatNum)
+// fmt.Printf("%.2f → %d\n", floatNum, int(rounded))
 
 // 9. Выполните операции с входными числами: Сложение Вычитание Умножение Деление
 // Остаток от деления
 
+// var a, b int
+    
+//    fmt.Print("Введите первое число: ")
+//     fmt.Scanln(&a)
+    
+//     fmt.Print("Введите второе число: ")
+//     fmt.Scanln(&b)
+
+   
+//     sum := a + b 
+//     diff := a - b
+// 		product := a * b 
+//     quotient := a / b 
+//     remainder := a % b
+
+//     fmt.Printf("%d + %d = %d\n", a, b, sum)
+//     fmt.Printf("%d - %d = %d\n", a, b, diff)
+//     fmt.Printf("%d * %d = %d\n", a, b, product)
+//     fmt.Printf("%d / %d = %d\n", a, b, quotient)
+//     fmt.Printf("%d %% %d = %d\n", a, b, remainder)
 
 // 10. Вычислите периметр прямоугольника по длине и ширине.
 // Вход: длина = 5, ширина = 3 → Периметр = 16
+// var length, width int
+
+//    fmt.Print("Введите длину прямоугольника: ")
+//     fmt.Scanln(&length)
+    
+//     fmt.Print("Введите ширину прямоугольника: ")
+//     fmt.Scanln(&width)
+//     perimeter := 2 * (length + width)
+
+//     fmt.Printf("Периметр прямоугольника (длина=%d, ширина=%d) = %d\n", length, width, perimeter)
+
 // 11. Вычислите среднее арифметическое двух чисел.
 // Вход: 10 и 20 → Среднее = 15
-// 12. Сравнение двух входных чисел
-// Проверьте: Если a > b — "a больше" Если a == b — "a равно b" Если a < b — "b больше«
-// 13. Найдите максимальное из двух входных чисел.
-// 14. Найдите минимальное из трех входных чисел.
-// 15. Проверьте, равны ли два входных числа.
 
+// a, b := 10, 20
+// average := (a + b) / 2
+// fmt.Printf("Среднее целых %d и %d равно %d\n", a, b, average)
+
+// 12. Сравнение двух входных чисел
+// Проверьте: Если a > b — "a больше" Если a == b — "a равно b" Если a < b — "b больше"
+
+// var a, b int
+    
+
+// fmt.Print("Введите первое число (a): ")
+// fmt.Scanln(&a)
+
+// fmt.Print("Введите второе число (b): ")
+// fmt.Scanln(&b)
+
+// switch {
+// case a > b:
+//     fmt.Println("a больше")
+// case a == b:
+//     fmt.Println("a равно b")
+// default:
+//     fmt.Println("b больше")
+// }
+
+// 13. Найдите максимальное из двух входных чисел.
+
+// var x, y int
+//     fmt.Print("Введите два числа через пробел: ")
+//     fmt.Scanln(&x, &y)
+    
+//     max := x
+// 		if y > x {
+// 			max = y
+// 	}
+//     fmt.Printf("Максимальное число: %d\n", max)
+
+// 14. Найдите минимальное из трех входных чисел.
+
+// var x, y, z int
+//     fmt.Print("Введите три числа через пробел: ")
+//     fmt.Scanln(&x, &y, &z)
+    
+//     min := x
+//     if y < min {
+//         min = y
+//     }
+//     if z < min {
+//         min = z
+//     }
+   
+//     fmt.Printf("Минимальное число: %d\n", min)
+
+// 15. Проверьте, равны ли два входных числа.
+// var x, y int
+//     fmt.Print("Введите два числа через пробел: ")
+//     fmt.Scanln(&x, &y)
+    
+//     if x==y {
+//         fmt.Println("Числа равны")
+//     } else {
+//         fmt.Println("Числа не равны")
+//     }
 }
 
