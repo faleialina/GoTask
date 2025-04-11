@@ -1,6 +1,6 @@
 package main
 
-import "fmt"
+ import "fmt"
 
 // "math"
 // "strconv"
@@ -11,15 +11,15 @@ func main() {
 	// Если 18-60 — "Вы взрослый".
 	// Если > 60 — "Вы пожилой человек".
 
-	const age int = 25
+	const age int = 35
 	if age < 18 {
 		fmt.Println("Вы несовершеннолетний")
 	} else if age >= 18 && age <= 60 {
 		fmt.Println("Вы взрослый")
-
 	} else {
 		fmt.Println("Вы пожилой человек")
 	}
+
 	// 2. Оцените успеваемость входных данных:
 	// 90-100 — "Отлично".
 	// 75-89 — "Хорошо".
