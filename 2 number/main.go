@@ -3,8 +3,6 @@ package main
 import (
 	// "bufio"
 	"fmt"
-	// "os"
-	"strings"
 )
 
 func main() {
@@ -177,29 +175,39 @@ func main() {
 	// Ввод: madam → Вывод: Да, это палиндром
 	// Ввод: hello → Вывод: Нет, это не палиндром
 
-	var input string
-	fmt.Print("Введите строку: ")
-	fmt.Scanln(&input)
+	// 	var input string
+	// 	fmt.Print("Введите строку: ")
+	// 	fmt.Scanln(&input)
 
-	if isPalindrome(input) {
-		fmt.Println("Да, это палиндром")
-	} else {
-		fmt.Println("Нет, это не палиндром")
-	}
-}
+	// 	if isPalindrome(input) {
+	// 		fmt.Println("Да, это палиндром")
+	// 	} else {
+	// 		fmt.Println("Нет, это не палиндром")
+	// 	}
+	// }
 
-func isPalindrome(s string) bool {
-	s = strings.ToLower(strings.ReplaceAll(s, " ", ""))
-	for i := 0; i < len(s)/2; i++ {
-		if s[i] != s[len(s)-1-i] {
-			return false
-		}
-	}
-	return true
+	// func isPalindrome(s string) bool {
+	// 	s = strings.ToLower(strings.ReplaceAll(s, " ", ""))
+	// 	for i := 0; i < len(s)/2; i++ {
+	// 		if s[i] != s[len(s)-1-i] {
+	// 			return false
+	// 		}
+	// 	}
+	// 	return true
 
 	// 11. Напишите программу, которая находит сумму чисел от X до Y.
 	// Ввод: 3, 5 → Вывод: 12
 	// Ввод: 1, 4 → Вывод: 10
+
+	var x, y, sum int
+	fmt.Print("Введите два числа через пробел: ")
+	fmt.Scanln(&x, &y)
+	sum = 0
+	for i := x; i <= y; i++ {
+		sum += i
+	}
+	fmt.Printf("сумма: %d\n", sum)
+	
 	// 12. Напишите программу, которая выводит все простые числа до числа N.
 	// Ввод: 10 → Вывод: 2 3 5 7
 	// Ввод: 20 → Вывод: 2 3 5 7 11 13 17 19
