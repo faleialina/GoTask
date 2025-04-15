@@ -2,7 +2,8 @@ package main
 
 import (
 	// "bufio"
-	"fmt"
+	// "fmt"
+	// "strings"
 )
 
 func main() {
@@ -199,29 +200,98 @@ func main() {
 	// Ввод: 3, 5 → Вывод: 12
 	// Ввод: 1, 4 → Вывод: 10
 
-	var x, y, sum int
-	fmt.Print("Введите два числа через пробел: ")
-	fmt.Scanln(&x, &y)
-	sum = 0
-	for i := x; i <= y; i++ {
-		sum += i
-	}
-	fmt.Printf("сумма: %d\n", sum)
-	
+	// var x, y, sum int
+	// fmt.Print("Введите два числа через пробел: ")
+	// fmt.Scanln(&x, &y)
+	// sum = 0
+	// for i := x; i <= y; i++ {
+	// 	sum += i
+	// }
+	// fmt.Printf("сумма: %d\n", sum)
+
 	// 12. Напишите программу, которая выводит все простые числа до числа N.
 	// Ввод: 10 → Вывод: 2 3 5 7
 	// Ввод: 20 → Вывод: 2 3 5 7 11 13 17 19
+
+	// var n int
+	// fmt.Print("Введите число N: ")
+	// fmt.Scanln(&n)
+
+	// fmt.Printf("Простые числа до %d: ", n)
+
+	// for num := 2; num <= n; num++ {
+	// 	isPrime := true
+	// 	for i := 2; i*i <= num; i++ {
+	// 		if num%i == 0 {
+	// 			isPrime = false
+	// 			break
+	// 		}
+	// 	}
+	// 	if isPrime {
+	// 		fmt.Print(num, " ")
+	// 	}
+	// }
+	// fmt.Println()
+
 	// 13. Напишите программу, которая находит индекс первого вхождения символа в строку.
 	// Ввод: hello, e → Вывод: 1
 	// Ввод: world, o → Вывод: 1
+
+	// var str string
+	// var char rune
+
+	// fmt.Print("Введите строку: ")
+	// fmt.Scanln(&str)
+
+	// fmt.Print("Введите символ для поиска: ")
+	// fmt.Scanf("%c\n", &char)
+
+	// index := strings.IndexRune(str, char)
+
+	// if index == -1 {
+	// 	fmt.Printf("Символ '%c' не найден в строке\n", char)
+	// } else {
+	// 	fmt.Printf("Индекс первого вхождения '%c': %d\n", char, index)
+	// }
+
 	// 14. Напишите программу, которая выводит все числа от 1 до N с шагом 2.
 	// Ввод: 10 → Вывод: 1 3 5 7 9
 	// Ввод: 6 → Вывод: 1 3 5
+
+	// var N int
+	// fmt.Print("Введите N: ")
+	// fmt.Scanln(&N)
+
+	// for i := 1; i <= N; i++ {
+	// 	fmt.Printf("%d\n", i)
+	// }
+
 	// 15. Напишите программу, которая проверяет, является ли число отрицательным.
 	// Ввод: -5 → Вывод: Отрицательное число
 	// Ввод: 3 → Вывод: Не отрицательное число
+
+	// var N int
+	// fmt.Print("Введите число: ")
+	// fmt.Scanln(&N)
+
+	// if N >= 0 {
+	// 	fmt.Println("Не отрицательное число")
+	// } else {
+	// 	fmt.Println("Отрицательное число")
+	// }
+
 	// 16. Напишите программу, которая принимает 2 строки и выводит их длину.
 	// Ввод: Hello, World → Вывод: 5 5
 	// Ввод: Go, Programming → Вывод: 2 11
+
+	// var str1, str2 string
+
+	// fmt.Print("Введите две строки через пробел: ")
+	// fmt.Scanf("%s %s", &str1, &str2)
+
+	// str1 = strings.TrimSpace(str1)
+	// str2 = strings.TrimSpace(str2)
+
+	// fmt.Printf("%d %d\n", len(str1), len(str2))
 
 }
