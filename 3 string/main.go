@@ -10,24 +10,34 @@ func main() {
 
 	// 1. Вывести каждый символ строки “Привет” 2 способами:, используя for и for range.
 
-	str := "Привет"
+	// str := "Привет"
 
-	// Способ 1: Обычный for
-	fmt.Println("Способ 1:")
-	runes := []rune(str)
-	for i := 0; i < len(runes); i++ {
-		fmt.Printf("%c ", runes[i])
-	}
-	fmt.Println()
+	// // Способ 1: Обычный for
+	// fmt.Println("Способ 1:")
+	// runes := []rune(str)
+	// for i := 0; i < len(runes); i++ {
+	// 	fmt.Printf("%c ", runes[i])
+	// }
+	// fmt.Println()
 
-	// Способ 2: for range
-	fmt.Println("Способ 2:")
-	for _, char := range str {
-		fmt.Printf("%c ", char)
-	}
-	fmt.Println()
+	// // Способ 2: for range
+	// fmt.Println("Способ 2:")
+	// for _, char := range str {
+	// 	fmt.Printf("%c ", char)
+	// }
+	// fmt.Println()
 
 	// 2. Вывести строку GoLang в обратном порядке
+
+	str := "GoLang"
+
+	runes := []rune(str)
+
+	for i := len(runes) - 1; i >= 0; i-- {
+		fmt.Printf("%c", runes[i])
+	}
+	fmt.Println()
+
 	// 3. Проверить, содержит ли строка hello world подстроку world.
 	// 4. Подсчитать, сколько раз подстрока go встречается в gogogopher.
 	// 5. Заменить все cat на dog в строке cat-cat-dog.
