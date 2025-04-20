@@ -1,10 +1,13 @@
 package main
 
 import (
-	// "bufio"
 	"fmt"
 	// "strings"
 )
+
+// "bufio"
+
+
 
 func main() {
 
@@ -29,17 +32,37 @@ func main() {
 
 	// 2. Вывести строку GoLang в обратном порядке
 
-	str := "GoLang"
+	// str := "GoLang"
 
-	runes := []rune(str)
+	// runes := []rune(str)
 
-	for i := len(runes) - 1; i >= 0; i-- {
-		fmt.Printf("%c", runes[i])
-	}
-	fmt.Println()
+	// for i := len(runes) - 1; i >= 0; i-- {
+	// 	fmt.Printf("%c", runes[i])
+	// }
+	// fmt.Println()
 
 	// 3. Проверить, содержит ли строка hello world подстроку world.
+
+	// str := "hello world"
+	// fmt.Println(strings.Contains(str, "world"))
+
 	// 4. Подсчитать, сколько раз подстрока go встречается в gogogopher.
+
+	// str := "gogogopher"
+	// 1
+	// count := strings.Count(str, "go")
+	// fmt.Printf("подстрока '%s' встречается %d раз(а)\n", "go", count)
+
+	// 2
+	// count := 0
+	// n := len("go")
+	// for i := 0; i <= len(str)-n; i++ {
+	// 	if str[i:i+n] == "go" {
+	// 		count++
+	// 	}
+	// }
+	// fmt.Printf("подстрока '%s' встречается %d раз(а)\n", "go", count)
+
 	// 5. Заменить все cat на dog в строке cat-cat-dog.
 	// 6. Заменить первое вхождение go на GO в строке go go go.
 	// 7. Сделать все буквы строки hello заглавными.
