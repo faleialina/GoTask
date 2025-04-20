@@ -3,8 +3,9 @@ package main
 import (
 	"fmt"
 	"strings"
-	// "strings"
 )
+
+// "strings"
 
 // "bufio"
 
@@ -79,19 +80,86 @@ func main() {
 
 	// 8. Убрать пробелы из строки “ hello world “.
 
-	str := " hello world "
-	fmt.Println(strings.TrimSpace(str))
+	// str := " hello world "
+	// fmt.Println(strings.TrimSpace(str))
 
 	// 9. Разбить строку a,b,c,d на срез строк.
+
+	// str := "a,b,c,d"
+	// fmt.Println(strings.Split(str, ","))
+
 	// 10. Объединить []string{"go", "lang"} в строку с пробелом между ними.
+
+	// str := []string{"go", "lang"}
+	// fmt.Println(strings.Join(str, ","))
+
 	// 11. Вывести ha 5 раз подряд.
+
+	// str := "ha"
+	// fmt.Println(strings.Repeat(str, 5))
+
 	// 12. Проверить, начинается ли строка golang с go.
+
+	// str := "golang"
+	// fmt.Println(strings.HasPrefix(str, "go"))
+
 	// 13. Проверить, заканчивается ли строка index.html на .html.
+
+	// str := "index.html"
+	// fmt.Println(strings.HasSuffix(str, ".html"))
+
 	// 14. Из строки h e l l o удалить все пробелы.
+
+	// str := "h e l l o"
+	// fmt.Println(strings.Replace(str, " ", "", -1))
+
 	// 15. Для строки GoLang напечатать каждый символ и его код, например: G - 71, o - 111, L - 76 и т.д.
+
+	// str := "GoLang"
+	// for _, char := range str {
+	// 	fmt.Printf("%c - %d, ", char, char)
+	// }
+
 	// 16. Подсчитать количество слов в строке go is awesome.
+	// // 1
+	// str := "go is awesome"
+
+	// count := strings.Count(str, " ") + 1
+	// fmt.Printf("количество слов: %d\n", count)
+	// // 2
+	// str := "go is awesome"
+	// words := strings.Split(str, " ")
+	// count := len(words)
+
+	// fmt.Printf("количество слов: %d\n", count)
+	// // 3
+	// str := "go is awesome"
+	// words := strings.Fields(str)
+	// count := len(words)
+
+	// fmt.Printf("количество слов: %d\n", count)
+
 	// 17. Подсчитать количество заглавных букв в строке GoLang.
+
+	// str := "GoLang"
+	// count := 0
+
+	// for _, char := range str {
+	// 	if unicode.IsUpper(char) {
+	// 		count++
+	// 	}
+	// }
+
+	// fmt.Printf("Строка: \"%s\"\n", str)
+	// fmt.Printf("Количество заглавных букв: %d\n", count)
+
 	// 18. Если строка заканчивается на ., удалить её.
+
+	// str := "Hello World."
+	// if strings.HasSuffix(str, ".") {
+	// 	fmt.Println(str[:len(str)-1])
+	// }
+
 	// 19. В предложении I love apples, заменить apples на oranges.
 	// 20. Учитывать только латинские гласные a, e, i, o, u.
 	// 21. Инверсия регистра (если буква — заглавная, сделать строчной и наоборот) GoLang → gOlANG
