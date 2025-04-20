@@ -2,12 +2,11 @@ package main
 
 import (
 	"fmt"
+	"strings"
 	// "strings"
 )
 
 // "bufio"
-
-
 
 func main() {
 
@@ -64,9 +63,25 @@ func main() {
 	// fmt.Printf("подстрока '%s' встречается %d раз(а)\n", "go", count)
 
 	// 5. Заменить все cat на dog в строке cat-cat-dog.
+
+	// str := "cat-cat-dog"
+	// fmt.Println(strings.Replace(str, "cat", "dog", -1))
+
 	// 6. Заменить первое вхождение go на GO в строке go go go.
+
+	// str := "go go go"
+	// fmt.Println(strings.Replace(str, "go", "GO", 1))
+
 	// 7. Сделать все буквы строки hello заглавными.
+
+	// str := "hello"
+	// fmt.Println(strings.ToUpper(str))
+
 	// 8. Убрать пробелы из строки “ hello world “.
+
+	str := " hello world "
+	fmt.Println(strings.TrimSpace(str))
+
 	// 9. Разбить строку a,b,c,d на срез строк.
 	// 10. Объединить []string{"go", "lang"} в строку с пробелом между ними.
 	// 11. Вывести ha 5 раз подряд.
