@@ -60,6 +60,19 @@ func Withdraw(a Account, newSum float64) {
 	fmt.Println(a.balance)
 }
 
+type Movie struct {
+	name   string
+	rating float64
+}
+
+func IsHit(m Movie) {
+	if m.rating >= 8.0 {
+		fmt.Println(true)
+	} else {
+		fmt.Println(false)
+	}
+}
+
 func main() {
 
 	person := Person{
@@ -93,8 +106,14 @@ func main() {
 	Deposit(account, 45000.0)
 	Withdraw(account, 15000.0)
 
-	// 5. Создайте структуру Movie с полями Название и Рейтинг. Добавьте метод IsHit(), который
-	// возвращает true, если рейтинг фильма 8.0 или выше.
+	// 5. Создайте структуру Movie с полями Название и Рейтинг. Добавьте метод IsHit(), который возвращает true, если рейтинг фильма 8.0 или выше.
+
+	movie := Movie{
+		name:   "Movie",
+		rating: 5.0,
+	}
+
+	IsHit(movie)
 
 	// 6. Создайте структуру User с полями Имя и Пароль. Добавьте метод ChangePassword(oldPass,
 	// 	newPass string), который меняет пароль, только если введён правильный старый пароль.
