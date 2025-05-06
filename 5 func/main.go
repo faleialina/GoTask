@@ -98,19 +98,49 @@ import (
 // 	return res
 // }
 
-func calculate(a, b float64, operation string) float64 {
-	switch operation {
-	case "+":
-		return a + b
-	case "-":
-		return a - b
-	case "*":
-		return a * b
-	case "/":
-		return a / b
-	default:
-		return 0
+// func calculate(a, b float64, operation string) float64 {
+// 	switch operation {
+// 	case "+":
+// 		return a + b
+// 	case "-":
+// 		return a - b
+// 	case "*":
+// 		return a * b
+// 	case "/":
+// 		return a / b
+// 	default:
+// 		return 0
+// 	}
+// }
+
+func average_value(sl []int) int {
+	var sum int
+
+	for _, item := range sl {
+		sum += item
 	}
+	return sum / len(sl)
+}
+
+func removeDuplicates(nums []int) []int {
+
+	seen := make(map[int]bool)
+	result := []int{}
+
+	for _, num := range nums {
+		if !seen[num] {
+			seen[num] = true
+			result = append(result, num)
+		}
+	}
+	return result
+}
+func processArray(numbers []int) []int {
+	uniqueNumbers := removeDuplicates(numbers)
+	if len(uniqueNumbers) == 0 {
+		fmt.Println("Массив пуст после удаления дубликатов")
+	}
+	return uniqueNumbers
 }
 
 func main() {
@@ -137,17 +167,20 @@ func main() {
 	// 	8. Напишите функцию, которая принимает два числа и операцию (например, +, -, *, /) и выполняет
 	// соответствующую арифметическую операцию.
 
-	fmt.Println("10 + 5 =", calculate(10, 5, "+"))
-	fmt.Println("10 - 5 =", calculate(10, 5, "-"))
-	fmt.Println("10 * 5 =", calculate(10, 5, "*"))
-	fmt.Println("10 / 5 =", calculate(10, 5, "/"))
-	fmt.Println("10 / 0 =", calculate(10, 0, "/"))
+	// fmt.Println("10 + 5 =", calculate(10, 5, "+"))
+	// fmt.Println("10 - 5 =", calculate(10, 5, "-"))
+	// fmt.Println("10 * 5 =", calculate(10, 5, "*"))
+	// fmt.Println("10 / 5 =", calculate(10, 5, "/"))
+	// fmt.Println("10 / 0 =", calculate(10, 0, "/"))
 
-	// 9. Напишите функцию, которая принимает слайс целых чисел и возвращает среднее
-	// арифметическое этих чисел.
+	// 9. Напишите функцию, которая принимает слайс целых чисел и возвращает среднее арифметическое этих чисел.
+
+	// fmt.Println(average_value([]int{1, 2, 3, 4, 5}))
 	// 10. Создайте функцию, которая принимает массив чисел, находит все повторяющиеся элементы и
 	// удаляет их. После этого функция должна проверить, не является ли массив пустым, и вывести
 	// соответствующее сообщение.
+	fmt.Println("Итоговый результат:", processArray([]int{1, 2, 2, 3, 4, 4, 5}))
+
 	// 11. Разработайте программу, которая находит сумму всех нечётных чисел в слайсе и выводит их
 	// индексы.
 	// 12. Напишите программу, которая проверяет, является ли слайс чисел палиндромом, то есть
