@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 )
 
@@ -113,34 +114,56 @@ import (
 // 	}
 // }
 
-func average_value(sl []int) int {
-	var sum int
+// func average_value(sl []int) int {
+// 	var sum int
 
-	for _, item := range sl {
-		sum += item
+// 	for _, item := range sl {
+// 		sum += item
+// 	}
+// 	return sum / len(sl)
+// }
+
+// func removeDuplicates(nums []int) []int {
+
+// 	seen := make(map[int]bool)
+// 	result := []int{}
+
+// 	for _, num := range nums {
+// 		if !seen[num] {
+// 			seen[num] = true
+// 			result = append(result, num)
+// 		}
+// 	}
+// 	return result
+// }
+// func processArray(numbers []int) []int {
+// 	uniqueNumbers := removeDuplicates(numbers)
+// 	if len(uniqueNumbers) == 0 {
+// 		fmt.Println("Массив пуст после удаления дубликатов")
+// 	}
+// 	return uniqueNumbers
+// }
+
+func sumNumbers(slice []int) (int, []int, error) {
+	if len(slice) == 0 {
+		return 0, nil, errors.New("передан пустой слайс")
 	}
-	return sum / len(sl)
-}
 
-func removeDuplicates(nums []int) []int {
+	sum := 0
+	indices := []int{}
 
-	seen := make(map[int]bool)
-	result := []int{}
-
-	for _, num := range nums {
-		if !seen[num] {
-			seen[num] = true
-			result = append(result, num)
+	for i, num := range slice {
+		if num%2 != 0 {
+			sum += num
+			indices = append(indices, i)
 		}
 	}
-	return result
-}
-func processArray(numbers []int) []int {
-	uniqueNumbers := removeDuplicates(numbers)
-	if len(uniqueNumbers) == 0 {
-		fmt.Println("Массив пуст после удаления дубликатов")
+
+	if len(indices) == 0 {
+		return 0, nil, errors.New("в слайсе нет нечётных чисел")
 	}
-	return uniqueNumbers
+
+	return sum, indices, nil
 }
 
 func main() {
@@ -179,10 +202,29 @@ func main() {
 	// 10. Создайте функцию, которая принимает массив чисел, находит все повторяющиеся элементы и
 	// удаляет их. После этого функция должна проверить, не является ли массив пустым, и вывести
 	// соответствующее сообщение.
-	fmt.Println("Итоговый результат:", processArray([]int{1, 2, 2, 3, 4, 4, 5}))
+	// fmt.Println("Итоговый результат:", processArray([]int{1, 2, 2, 3, 4, 4, 5}))
 
-	// 11. Разработайте программу, которая находит сумму всех нечётных чисел в слайсе и выводит их
-	// индексы.
+	// 11. Разработайте программу, которая находит сумму всех нечётных чисел в слайсе и выводит их индексы.
+	testCases := [][]int{
+		{1, 2, 3, 4, 5},  // нормальный случай
+		{2, 4, 6, 8},     // нет нечётных чисел
+		{},               // пустой слайс
+		{11, 22, 33, 44}, // другой нормальный случай
+	}
+
+	for _, tc := range testCases {
+		sum, indices, err := sumNumbers(tc)
+		if err != nil {
+			fmt.Printf("Ошибка для слайса %v: %v\n", tc, err)
+			continue
+		}
+
+		fmt.Printf("Слайс: %v\n", tc)
+		fmt.Printf("Сумма нечётных чисел: %d\n", sum)
+		fmt.Printf("Индексы нечётных чисел: %v\n", indices)
+		fmt.Println("-----")
+	}
+
 	// 12. Напишите программу, которая проверяет, является ли слайс чисел палиндромом, то есть
 	// читается ли слайс одинаково в обоих направлениях. В случае палиндрома программа должна
 	// вывести true, иначе false.
