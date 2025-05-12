@@ -144,26 +144,61 @@ import (
 // 	return uniqueNumbers
 // }
 
-func sumNumbers(slice []int) (int, []int, error) {
+// func sumNumbers(slice []int) (int, []int, error) {
+// 	if len(slice) == 0 {
+// 		return 0, nil, errors.New("передан пустой слайс")
+// 	}
+
+// 	sum := 0
+// 	indices := []int{}
+
+// 	for i, num := range slice {
+// 		if num%2 != 0 {
+// 			sum += num
+// 			indices = append(indices, i)
+// 		}
+// 	}
+
+// 	if len(indices) == 0 {
+// 		return 0, nil, errors.New("в слайсе нет нечётных чисел")
+// 	}
+
+// 	return sum, indices, nil
+// }
+
+// func isPalindromeSlice(slice []int) bool {
+// 	if len(slice) <= 1 {
+// 		return true
+// 	}
+
+// 	for i := 0; i < len(slice)/2; i++ {
+// 		if slice[i] != slice[len(slice)-1-i] {
+// 			return false
+// 		}
+// 	}
+// 	return true
+// }
+
+func sumAboveAverage(slice []int) (int, error) {
+
 	if len(slice) == 0 {
-		return 0, nil, errors.New("передан пустой слайс")
+		return 0, errors.New("передан пустой слайс")
 	}
 
 	sum := 0
-	indices := []int{}
+	for _, num := range slice {
+		sum += num
+	}
+	average := float64(sum) / float64(len(slice))
 
-	for i, num := range slice {
-		if num%2 != 0 {
-			sum += num
-			indices = append(indices, i)
+	result := 0
+	for _, num := range slice {
+		if float64(num) > average {
+			result += num
 		}
 	}
 
-	if len(indices) == 0 {
-		return 0, nil, errors.New("в слайсе нет нечётных чисел")
-	}
-
-	return sum, indices, nil
+	return result, nil
 }
 
 func main() {
@@ -205,31 +240,64 @@ func main() {
 	// fmt.Println("Итоговый результат:", processArray([]int{1, 2, 2, 3, 4, 4, 5}))
 
 	// 11. Разработайте программу, которая находит сумму всех нечётных чисел в слайсе и выводит их индексы.
-	testCases := [][]int{
-		{1, 2, 3, 4, 5},  // нормальный случай
-		{2, 4, 6, 8},     // нет нечётных чисел
-		{},               // пустой слайс
-		{11, 22, 33, 44}, // другой нормальный случай
-	}
+	// testCases := [][]int{
+	// 	{1, 2, 3, 4, 5},  // нормальный случай
+	// 	{2, 4, 6, 8},     // нет нечётных чисел
+	// 	{},               // пустой слайс
+	// 	{11, 22, 33, 44}, // другой нормальный случай
+	// }
 
-	for _, tc := range testCases {
-		sum, indices, err := sumNumbers(tc)
-		if err != nil {
-			fmt.Printf("Ошибка для слайса %v: %v\n", tc, err)
-			continue
-		}
+	// for _, tc := range testCases {
+	// 	sum, indices, err := sumNumbers(tc)
+	// 	if err != nil {
+	// 		fmt.Printf("Ошибка для слайса %v: %v\n", tc, err)
+	// 		continue
+	// 	}
 
-		fmt.Printf("Слайс: %v\n", tc)
-		fmt.Printf("Сумма нечётных чисел: %d\n", sum)
-		fmt.Printf("Индексы нечётных чисел: %v\n", indices)
-		fmt.Println("-----")
-	}
+	// 	fmt.Printf("Слайс: %v\n", tc)
+	// 	fmt.Printf("Сумма нечётных чисел: %d\n", sum)
+	// 	fmt.Printf("Индексы нечётных чисел: %v\n", indices)
+	// 	fmt.Println("-----")
+	// }
 
 	// 12. Напишите программу, которая проверяет, является ли слайс чисел палиндромом, то есть
 	// читается ли слайс одинаково в обоих направлениях. В случае палиндрома программа должна
 	// вывести true, иначе false.
-	// 13. Напишите программу, которая находит сумму всех чисел в слайсе, которые больше среднего
-	// значения
+	// testCases := [][]int{
+	// 	{1, 2, 3, 2, 1},    // true (палиндром)
+	// 	{1, 2, 3, 4, 5},    // false (не палиндром)
+	// 	{},                 // true (пустой слайс)
+	// 	{5},                // true (один элемент)
+	// 	{1, 2, 2, 1},       // true (четное количество элементов)
+	// 	{1, 2, 3, 3, 2, 1}, // true (палиндром)
+	// 	{1, 2, 3, 4, 2, 1}, // false (не палиндром)
+	// }
+
+	// for _, tc := range testCases {
+	// 	result := isPalindromeSlice(tc)
+	// 	fmt.Printf("%v -> %t\n", tc, result)
+	// }
+
+	// 13. Напишите программу, которая находит сумму всех чисел в слайсе, которые больше среднего значения
+
+	testCases := [][]int{
+		{1, 2, 3, 4, 5},
+		{10, 20, 30},
+		{},
+		{5, 5, 5, 5},
+		{2, 4, 6, 8, 10},
+	}
+
+	for _, tc := range testCases {
+		sum, err := sumAboveAverage(tc)
+		if err != nil {
+			fmt.Printf("Ошибка для слайса %v: %v\n", tc, err)
+			continue
+		}
+		fmt.Printf("Слайс: %v\n", tc)
+		fmt.Printf("Сумма чисел больше среднего: %d\n", sum)
+		fmt.Println("-----")
+	}
 	// 14. Напишите программу, которая генерирует два случайных слайса чисел от 1 до 100 и находит
 	// пересечение этих слайсов (элементы, которые встречаются в обоих слайсах).
 	// 15. Напишите программу, которая генерирует слайс из N случайных чисел от 1 до 100, затем
