@@ -3,6 +3,8 @@ package main
 import (
 	"errors"
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 // "strings"
@@ -179,26 +181,64 @@ import (
 // 	return true
 // }
 
-func sumAboveAverage(slice []int) (int, error) {
+// func sumAboveAverage(slice []int) (int, error) {
 
-	if len(slice) == 0 {
-		return 0, errors.New("передан пустой слайс")
+// 	if len(slice) == 0 {
+// 		return 0, errors.New("передан пустой слайс")
+// 	}
+
+// 	sum := 0
+// 	for _, num := range slice {
+// 		sum += num
+// 	}
+// 	average := float64(sum) / float64(len(slice))
+
+// 	result := 0
+// 	for _, num := range slice {
+// 		if float64(num) > average {
+// 			result += num
+// 		}
+// 	}
+
+// 	return result, nil
+// }
+
+func generateRandomSlice(size int) ([]int, error) {
+	if size <= 0 {
+		return nil, errors.New("размер слайса должен быть положительным числом")
 	}
 
-	sum := 0
-	for _, num := range slice {
-		sum += num
+	rand.Seed(time.Now().UnixNano())
+	slice := make([]int, size)
+	for i := 0; i < size; i++ {
+		slice[i] = rand.Intn(100) + 1
 	}
-	average := float64(sum) / float64(len(slice))
+	return slice, nil
+}
 
-	result := 0
-	for _, num := range slice {
-		if float64(num) > average {
-			result += num
+func findIntersection(slice1, slice2 []int) ([]int, error) {
+	if len(slice1) == 0 || len(slice2) == 0 {
+		return nil, errors.New("один из слайсов пуст")
+	}
+
+	elements := make(map[int]bool)
+	for _, num := range slice1 {
+		elements[num] = true
+	}
+
+	var intersection []int
+	for _, num := range slice2 {
+		if elements[num] {
+			intersection = append(intersection, num)
+			elements[num] = false
 		}
 	}
 
-	return result, nil
+	if len(intersection) == 0 {
+		return nil, errors.New("нет общих элементов")
+	}
+
+	return intersection, nil
 }
 
 func main() {
@@ -280,26 +320,49 @@ func main() {
 
 	// 13. Напишите программу, которая находит сумму всех чисел в слайсе, которые больше среднего значения
 
-	testCases := [][]int{
-		{1, 2, 3, 4, 5},
-		{10, 20, 30},
-		{},
-		{5, 5, 5, 5},
-		{2, 4, 6, 8, 10},
+	// testCases := [][]int{
+	// 	{1, 2, 3, 4, 5},
+	// 	{10, 20, 30},
+	// 	{},
+	// 	{5, 5, 5, 5},
+	// 	{2, 4, 6, 8, 10},
+	// }
+
+	// for _, tc := range testCases {
+	// 	sum, err := sumAboveAverage(tc)
+	// 	if err != nil {
+	// 		fmt.Printf("Ошибка для слайса %v: %v\n", tc, err)
+	// 		continue
+	// 	}
+	// 	fmt.Printf("Слайс: %v\n", tc)
+	// 	fmt.Printf("Сумма чисел больше среднего: %d\n", sum)
+	// 	fmt.Println("-----")
+	// }
+	// 14. Напишите программу, которая генерирует два случайных слайса чисел от 1 до 100 и находит пересечение этих слайсов (элементы, которые встречаются в обоих слайсах).
+
+	slice1, err := generateRandomSlice(10)
+	if err != nil {
+		fmt.Println("Ошибка генерации первого слайса:", err)
+		return
 	}
 
-	for _, tc := range testCases {
-		sum, err := sumAboveAverage(tc)
-		if err != nil {
-			fmt.Printf("Ошибка для слайса %v: %v\n", tc, err)
-			continue
-		}
-		fmt.Printf("Слайс: %v\n", tc)
-		fmt.Printf("Сумма чисел больше среднего: %d\n", sum)
-		fmt.Println("-----")
+	slice2, err := generateRandomSlice(8)
+	if err != nil {
+		fmt.Println("Ошибка генерации второго слайса:", err)
+		return
 	}
-	// 14. Напишите программу, которая генерирует два случайных слайса чисел от 1 до 100 и находит
-	// пересечение этих слайсов (элементы, которые встречаются в обоих слайсах).
+
+	fmt.Println("Первый слайс:", slice1)
+	fmt.Println("Второй слайс:", slice2)
+
+	intersection, err := findIntersection(slice1, slice2)
+	if err != nil {
+		fmt.Println("Ошибка поиска пересечения:", err)
+		return
+	}
+
+	fmt.Println("Пересечение слайсов:", intersection)
+
 	// 15. Напишите программу, которая генерирует слайс из N случайных чисел от 1 до 100, затем
 	// создает два слайса: один с чисел, делящихся на 5, а другой — на 7.
 
